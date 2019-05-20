@@ -10,16 +10,27 @@ package clientefinalsistemasdistribuidos;
  * @author saul
  */
 public class Main {
-    static Conexion c = new Conexion();
+    static Conexion dirSet = new Conexion();
     static Controles controles = new Controles();
     public static ApiConexion api;
     
     public static void StartConection(String serverIp){
-        api = new ApiConexion(serverIp);
-        controles.main();
+        api = new ApiConexion(serverIp, new IOnShitReceived(){
+            @Override
+            public String MessageReceived(String message) {
+                
+                return null;
+            }
+        });
+        controles.setVisible(true);
     }
     
-    public static void Main(){
-        c.main();
+    public static void CloseControls(){
+        controles.setVisible(false);
+        dirSet.setVisible(true);
+    }
+    
+    public static void main(){
+        dirSet.setVisible(true);
     }
 }
