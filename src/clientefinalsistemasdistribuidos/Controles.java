@@ -1,3 +1,8 @@
+package clientefinalsistemasdistribuidos;
+
+
+import javax.swing.JPanel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +20,8 @@ public class Controles extends javax.swing.JFrame {
      */
     public Controles() {
         initComponents();
+        
+        jColorChooser1.setPreviewPanel(new JPanel());
     }
 
     /**
@@ -77,7 +84,7 @@ public class Controles extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -100,15 +107,21 @@ public class Controles extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Controles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Controles().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Controles().setVisible(true);
         });
     }
-
+    
+    public void SetNewColors(){
+    
+    }
+    
+    public void SetNewOnState(boolean newState){
+        jToggleButton1.setSelected(newState);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JToggleButton jToggleButton1;
