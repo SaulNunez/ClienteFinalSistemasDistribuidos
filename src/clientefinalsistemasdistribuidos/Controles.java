@@ -1,6 +1,7 @@
 package clientefinalsistemasdistribuidos;
 
 
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /*
@@ -114,8 +115,8 @@ public class Controles extends javax.swing.JFrame {
         });
     }
     
-    public void SetNewColors(){
-    
+    public void SetNewColors(Color c){
+        jColorChooser1.setColor(c);
     }
     
     public void SetNewOnState(boolean newState){
