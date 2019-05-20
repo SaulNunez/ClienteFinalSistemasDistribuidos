@@ -12,24 +12,25 @@ import java.awt.Color;
  * @author saul
  */
 public class Main {
+
     static Conexion dirSet = new Conexion();
     static Controles controles = new Controles();
     public static ApiConexion api;
     
-    public static void StartConection(String serverIp){
-        api = new ApiConexion(serverIp, new IOnShitReceived(){
+    public static void StartConection(String serverIp) {
+        api = new ApiConexion(serverIp, new IOnShitReceived() {
             @Override
             public String MessageReceived(String message) {
                 String[] keywords = message.split("\\s+");
                 System.out.println(message);
-
+                
                 if (keywords.length == 4) {
                     if ("color".equals(keywords[0])) {
                         int r, g, b;
                         r = Integer.parseInt(keywords[1]);
                         g = Integer.parseInt(keywords[2]);
                         b = Integer.parseInt(keywords[3]);
-
+                        
                         Color c = new Color(r, g, b);
                         controles.SetNewColors(c);
                         return message;
@@ -47,12 +48,20 @@ public class Main {
         controles.setVisible(true);
     }
     
-    public static void CloseControls(){
+    public static void CloseControls() {
         controles.setVisible(false);
         dirSet.setVisible(true);
     }
     
-    public static void main(){
+    public static void main() {
         dirSet.setVisible(true);
+    }
+    
+    public static void updateColor(Color c) {
+        api.updateColor(c);
+    }
+    
+    public static void ledPowerState(Boolean on) {
+        api.updatePowerState(on);
     }
 }

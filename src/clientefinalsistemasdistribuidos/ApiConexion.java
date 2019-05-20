@@ -52,6 +52,10 @@ public class ApiConexion extends Thread {
     public void updateColor(Color c) {
         salida.println(String.format("color %i %i %i", c.getRed(), c.getGreen(), c.getBlue()));
     }
+    
+    public void updatePowerState(boolean on){
+        salida.println(String.format("power %b", on));
+    }
 
     @Override
     protected void finalize() {
