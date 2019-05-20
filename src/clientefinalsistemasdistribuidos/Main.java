@@ -53,7 +53,7 @@ public class Main {
         dirSet.setVisible(true);
     }
     
-    public static void main() {
+    public static void main(String[] args) {
         dirSet.setVisible(true);
     }
     
