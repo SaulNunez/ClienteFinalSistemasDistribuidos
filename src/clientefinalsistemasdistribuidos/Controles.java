@@ -1,15 +1,15 @@
 package clientefinalsistemasdistribuidos;
 
-
 import java.awt.Color;
 import javax.swing.JPanel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author sauln
@@ -21,8 +21,15 @@ public class Controles extends javax.swing.JFrame {
      */
     public Controles() {
         initComponents();
-        
+
         jColorChooser1.setPreviewPanel(new JPanel());
+        jColorChooser1.getSelectionModel().addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                Main.updateColor(jColorChooser1.getColor());
+
+            }
+        });
     }
 
     /**
@@ -79,7 +86,7 @@ public class Controles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
+        Main.ledPowerState(jToggleButton1.isSelected());
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
@@ -108,21 +115,21 @@ public class Controles extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Controles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Controles().setVisible(true);
         });
     }
-    
-    public void SetNewColors(Color c){
+
+    public void SetNewColors(Color c) {
         jColorChooser1.setColor(c);
     }
-    
-    public void SetNewOnState(boolean newState){
+
+    public void SetNewOnState(boolean newState) {
         jToggleButton1.setSelected(newState);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JToggleButton jToggleButton1;
